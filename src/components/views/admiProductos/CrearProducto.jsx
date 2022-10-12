@@ -1,14 +1,23 @@
 import { Form, Button } from "react-bootstrap";
 import {useForm} from 'react-hook-form';
+import Swal from "sweetalert2";
+import { crearProductoAPI } from "../../helpers/queries";
 
 const CrearProducto = () => {
   const {register, handleSubmit, formState:{errors}} = useForm();
 
   const onSubmit = (datos) =>{
-    console.log('desde mi funcion submit')
     console.log(datos)
     //enviar la peticion a la API
-    //si la respuesta es correcta indicarle al usuario
+    crearProductoAPI(datos).then((respuesta)=>{
+      console.log(respuesta)
+      if(respuesta.status === 201){
+        //si la respuesta es correcta indicarle al usuario
+        Swal.fire("Producto creado","El producto fue creado exitosamente","success")
+      }else{
+        Swal.fire("Ocurrio un error","El producto no pudo ser creado","error")
+      }
+    })
   }
 
   return (

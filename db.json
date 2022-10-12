@@ -1,25 +1,46 @@
 {
-    "productos":[
-        {
-            "nombreProducto":"café",
-            "imagen":"https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "precio": 300,
-            "categoria":"bebida-caliente",
-            "id":1    
-        },
-        {
-            "nombreProducto":"brownie",
-            "imagen":"https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "precio": 250,
-            "categoria":"dulce",
-            "id":2    
-        },
-        {
-            "nombreProducto":"licuado",
-            "imagen":"https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "precio": 450,
-            "categoria":"bebida-fria",
-            "id":3    
-        }
-    ]
+  "productos": [
+    {
+      "nombreProducto": "café",
+      "imagen": "https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "precio": 300,
+      "categoria": "bebida-caliente",
+      "id": 1
+    },
+    {
+      "nombreProducto": "brownie",
+      "imagen": "https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "precio": 250,
+      "categoria": "dulce",
+      "id": 2
+    },
+    {
+      "nombreProducto": "licuado",
+      "imagen": "https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "precio": 450,
+      "categoria": "bebida-fria",
+      "id": 3
+    },
+    {
+      "nombreProducto": "café expreso",
+      "imagen": "https://images.pexels.com/photos/11942622/pexels-photo-11942622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "precio": 400,
+      "categoria": "bebida-caliente",
+      "id": 4
+    },
+    {
+      "nombreProducto": "Té",
+      "precio": "50",
+      "imagen": "https://images.pexels.com/photos/1672304/pexels-photo-1672304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "categoria": "bebida-caliente",
+      "id": 5
+    },
+    {
+      "nombreProducto": "té de manzanilla",
+      "precio": "60",
+      "imagen": "https://images.pexels.com/photos/1672304/pexels-photo-1672304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "categoria": "bebida-caliente",
+      "id": 6
+    }
+  ]
 }
