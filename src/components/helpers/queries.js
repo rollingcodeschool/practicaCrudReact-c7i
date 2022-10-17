@@ -16,6 +16,20 @@ export const consultarAPI = async()=>{
         return false;
     }
 }
+export const obtenerProductoAPI = async(id)=>{
+    // console.log(URL)
+    try {
+        const respuesta = await fetch(URL+'/'+id);
+        const producto={
+            dato: await respuesta.json(),
+            status: respuesta.status
+        }
+        return producto;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
 
 export const crearProductoAPI = async(producto)=>{
     // console.log(URL)
