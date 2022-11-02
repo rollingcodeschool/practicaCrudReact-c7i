@@ -43,7 +43,24 @@
       "id": 8
     }
   ],
-  "usuarios":[
-    
+  "usuarios": [
+    {
+      "usuario": "emilse",
+      "email": "emilse@mail.com",
+      "pass": "12345678",
+      "id": 1
+    },
+    {
+      "usuario": "jony",
+      "email": "jony@mail.com",
+      "pass": "12345678",
+      "id": 2
+    },
+    {
+      "usuario": "matias",
+      "email": "matias@mail.com",
+      "pass": "12345678",
+      "id": 3
+    }
   ]
 }
