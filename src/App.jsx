@@ -12,6 +12,8 @@ import "./app.css";
 import { useState } from "react";
 import Login from "./components/views/Login";
 import Registro from "./components/views/Registro";
+import RutasProtegidas from "./components/routes/RutasProtegidas";
+import RutasAdmin from "./components/routes/RutasAdmin";
 
 function App() {
   //aqui quiero almacenar el usuario logueado
@@ -30,30 +32,21 @@ function App() {
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         <Route
           exact
-          path="/administrar"
-          element={<Administrador></Administrador>}
-        ></Route>
-        <Route
-          exact
-          path="/administrar/crear"
-          element={<CrearProducto></CrearProducto>}
-        ></Route>
-        <Route
-          exact
-          path="/administrar/editar/:id"
-          element={<EditarProducto></EditarProducto>}
-        ></Route>
-        <Route
-          exact
           path="/detalle-producto/:id"
           element={<DetalleProducto></DetalleProducto>}
         ></Route>
-        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
         <Route
           exact
-          path="/registro"
+          path="/login"
+          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
+        ></Route>
+        {/* aqui quiero las rutas protegidas */}
+        <Route
+          path="/administrar/*"
           element={
-            <Registro setUsuarioLogueado={setUsuarioLogueado}></Registro>
+            <RutasProtegidas>
+              <RutasAdmin setUsuarioLogueado={setUsuarioLogueado}></RutasAdmin>
+            </RutasProtegidas>
           }
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>

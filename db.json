@@ -61,6 +61,12 @@
       "email": "matias@mail.com",
       "password": "12345678",
       "id": 3
+    },
+    {
+      "nombre": "camila",
+      "email": "camila@mail.com",
+      "password": "12345678",
+      "id": 4
     }
   ]
 }
