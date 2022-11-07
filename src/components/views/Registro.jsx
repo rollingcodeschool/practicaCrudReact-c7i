@@ -21,28 +21,7 @@ const Registro = ({setUsuarioLogueado}) => {
   const [pass, setPass] = useState("");
 
   const onSubmit = (datos) => {
-    const verificacionNombre = usuarios.find(
-      (usuario) => usuario.id === datos.usuario
-    );
-    const verificacionEmail = usuarios.find(
-      (usuario) => usuario.email === datos.email
-    );
-
-    if (verificacionNombre) {
-      Swal.fire(
-        "Este usuario es existente",
-        "Prueba registrarte con otro nombre de usuario",
-        "error"
-      );
-      return;
-    } else if (verificacionEmail) {
-      Swal.fire(
-        "Este email es existente",
-        "Prueba registrarte con otro email",
-        "error"
-      );
-      return;
-    } else {
+   
       crearUsuarioAPI(datos).then((respuesta) => {
         if (respuesta.status === 201) {
           setUsuarios([
@@ -73,7 +52,7 @@ const Registro = ({setUsuarioLogueado}) => {
           );
         }
       });
-    }
+    
   };
 
   return (

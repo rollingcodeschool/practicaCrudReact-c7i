@@ -27,3 +27,28 @@ export const crearUsuarioAPI =  async (usuario) => {
         console.log(e)
     }
 }
+
+export const login = async (usuario) =>{
+    try{
+
+        console.log(usuario)
+      //verificar si el usuario existe
+      const respuesta = await fetch(URL);
+      const listaUsuarios = await respuesta.json();
+      //buscar cual usuario tiene mi mail
+      const usuarioBuscado = listaUsuarios.find((itemUsuario)=> itemUsuario.email === usuario.usuario )
+      if(usuarioBuscado){
+        console.log('email encontrado')
+        //verificar el password
+        if(usuarioBuscado.password === usuario.password ){
+          return usuarioBuscado
+        }
+      }else{
+        console.log('el mail no existe')
+        return
+      }
+    }catch(error){
+      console.log('errores en el login')
+      return
+    }
+  }

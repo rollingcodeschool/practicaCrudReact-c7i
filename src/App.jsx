@@ -45,10 +45,10 @@ function App() {
         ></Route>
         <Route
           exact
-          path="/detalle-producto"
+          path="/detalle-producto/:id"
           element={<DetalleProducto></DetalleProducto>}
         ></Route>
-        <Route exact path="/login" element={<Login></Login>}></Route>
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
         <Route
           exact
           path="/registro"

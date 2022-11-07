@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { consultarUserAPI } from "../helpers/queriesLogin";
+import { login } from "../helpers/queriesLogin";
 import Swal from "sweetalert2";
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
   const navigate = useNavigate();
 
   const {
@@ -13,38 +13,25 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [usuario, setUsuario] = useState("");
-  const [pass, setPass] = useState("");
-  
+
   const onSubmit = (datos) => {
-    consultarUserAPI().then((respuesta) => {
-        console.log(respuesta)
-      const encontrarUser = respuesta.find(
-        (user) => user.usuario === datos.usuario
-      );
-      const encontrarEmail = respuesta.find(
-        (user) => user.email === datos.email
-      );
-      if (encontrarUser || encontrarEmail) {
-        if (encontrarUser.pass === datos.pass) {
-          Swal.fire(
-            "Bienvenido",
-            `Gracias por contar con nosotros, ${encontrarUser.usuario}`,
-            "success"
-          );
-          localStorage.setItem("tokenCafeBenito", JSON.stringify(encontrarUser.usuario));
-          navigate("/administrar");
-        } else {
-          Swal.fire(
-            "Error",
-            `Contraseña incorrecta, vuelva a intentarlo`,
-            "error"
-          );
-        }
+    login(datos).then((respuesta) => {
+      if (respuesta) {
+        Swal.fire(
+          "Bienvenido",
+          `Gracias por contar con nosotros, ${datos.usuario}`,
+          "success"
+        );
+        localStorage.setItem(
+          "tokenCafeBenito",
+          JSON.stringify(respuesta)
+        );
+        setUsuarioLogueado(respuesta)
+        navigate("/administrar");
       } else {
         Swal.fire(
-          "Usuario o email incorrecto",
-          `No encontramos un usuario o email con ese nombre, vuelve a intentarlo`,
+          "Error",
+          `Contraseña incorrecta, vuelva a intentarlo`,
           "error"
         );
       }
@@ -72,8 +59,7 @@ const Login = () => {
                     message: "El nombre no debe tener mas de 30 caracteres",
                   },
                 })}
-                onChange={(e) => setUsuario(e.target.value)}
-                value={usuario}
+        
               />
               <Form.Text className="text-danger">
                 {errors.usuario?.message}
@@ -84,7 +70,7 @@ const Login = () => {
               <Form.Control
                 type="password"
                 placeholder="Ingrese un password"
-                {...register("pass", {
+                {...register("password", {
                   required: "Debe ingresar una contraseña",
                   minLength: {
                     value: 8,
@@ -96,8 +82,7 @@ const Login = () => {
                       "Su contraseña debe tener como 30 caracteres como maximo",
                   },
                 })}
-                onChange={(e) => setPass(e.target.value)}
-                value={pass}
+    
               />
               <Form.Text className="text-danger mb-2">
                 {errors.pass?.message}
