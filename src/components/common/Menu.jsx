@@ -22,7 +22,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <NavLink to="/" className='nav-item nav-link'>
               Inicio
             </NavLink>
-            {usuarioLogueado.usuario ? (
+            {usuarioLogueado.nombre ? (
               <>
                 <NavLink end to="/administrar" className="nav-item nav-link">
                   Administrar

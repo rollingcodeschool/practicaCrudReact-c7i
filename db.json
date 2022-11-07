@@ -45,28 +45,22 @@
   ],
   "usuarios": [
     {
-      "usuario": "emilse",
+      "nombre": "emilse",
       "email": "emilse@mail.com",
       "password": "12345678",
       "id": 1
     },
     {
-      "usuario": "jony",
+      "nombre": "jony",
       "email": "jony@mail.com",
       "password": "12345678",
       "id": 2
     },
     {
-      "usuario": "matias",
+      "nombre": "matias",
       "email": "matias@mail.com",
       "password": "12345678",
       "id": 3
-    },
-    {
-      "usuario": "nico",
-      "email": "nico@mail.com",
-      "pass": "nico123456",
-      "id": 4
     }
   ]
 }

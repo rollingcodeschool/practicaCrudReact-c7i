@@ -14,27 +14,13 @@ const Registro = ({setUsuarioLogueado}) => {
     formState: { errors },
   } = useForm();
 
-  const [usuarios, setUsuarios] = useState([]);
-
-  const [usuario, setUsuario] = useState("");
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-
   const onSubmit = (datos) => {
    
       crearUsuarioAPI(datos).then((respuesta) => {
         if (respuesta.status === 201) {
-          setUsuarios([
-            ...usuarios,
-            {
-              usuario: datos.usuario,
-              email: datos.email,
-              pass: datos.pass,
-              id: datos.usuario,
-            },
-          ]);
+
           Swal.fire(
-            `Te registraste correctamente, ${usuario}`,
+            `Te registraste correctamente, ${datos.nombre}`,
             "Inicia sesion con tu nueva cuenta.",
             "success"
           );
@@ -65,7 +51,7 @@ const Registro = ({setUsuarioLogueado}) => {
               <Form.Control
                 type="text"
                 placeholder="Ingrese un nombre de usuario"
-                {...register("usuario", {
+                {...register("nombre", {
                   required: "Debe ingresar un nombre de usuario",
                   minLength: {
                     value: 3,
@@ -80,11 +66,9 @@ const Registro = ({setUsuarioLogueado}) => {
                     message: "Debe ingresar un nombre de usaurio valido",
                   },
                 })}
-                onChange={(e) => setUsuario(e.target.value)}
-                value={usuario}
               />
-              <Form.Text className="text-danger">
-                {errors.usuario?.message}
+              <Form.Text className="text-danger mb-2">
+                {errors.nombre?.message}
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-2">
@@ -98,8 +82,6 @@ const Registro = ({setUsuarioLogueado}) => {
                     message: "Debe ingresar un formato valido",
                   },
                 })}
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
               />
               <Form.Text className="text-danger mb-2">
                 {errors.email?.message}
@@ -109,7 +91,7 @@ const Registro = ({setUsuarioLogueado}) => {
               <Form.Control
                 type="password"
                 placeholder="Ingrese un password"
-                {...register("pass", {
+                {...register("password", {
                   required: "Debe ingresar una contraseña",
                   minLength: {
                     value: 8,
@@ -121,11 +103,10 @@ const Registro = ({setUsuarioLogueado}) => {
                       "Su contraseña debe tener como 30 caracteres como maximo",
                   },
                 })}
-                onChange={(e) => setPass(e.target.value)}
-                value={pass}
+             
               />
               <Form.Text className="text-danger mb-2">
-                {errors.pass?.message}
+                {errors.password?.message}
               </Form.Text>
             </Form.Group>
             <div className="row">

@@ -85,7 +85,7 @@ const Login = ({setUsuarioLogueado}) => {
     
               />
               <Form.Text className="text-danger mb-2">
-                {errors.pass?.message}
+                {errors.password?.message}
               </Form.Text>
             </Form.Group>
             <div className="row">
