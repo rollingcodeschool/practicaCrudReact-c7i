@@ -16,10 +16,10 @@ const Login = ({setUsuarioLogueado}) => {
 
   const onSubmit = (datos) => {
     login(datos).then((respuesta) => {
-      if (respuesta) {
+      if (respuesta.status === 200) {
         Swal.fire(
           "Bienvenido",
-          `Gracias por contar con nosotros, ${datos.usuario}`,
+          `Gracias por contar con nosotros, ${datos.email}`,
           "success"
         );
         localStorage.setItem(
@@ -48,7 +48,7 @@ const Login = ({setUsuarioLogueado}) => {
               <Form.Control
                 type="text"
                 placeholder="Ingrese su nombre de usuario o email"
-                {...register("usuario", {
+                {...register("email", {
                   required: "Debe ingresar un nombre de usuario",
                   minLength: {
                     value: 3,
@@ -62,7 +62,7 @@ const Login = ({setUsuarioLogueado}) => {
         
               />
               <Form.Text className="text-danger">
-                {errors.usuario?.message}
+                {errors.email?.message}
               </Form.Text>
             </Form.Group>
 

@@ -10,10 +10,11 @@ const ItemProducto = ({producto, setProductos}) => {
 const {_id, nombreProducto, categoria, imagen, precio} = {...producto} 
 
 const borrarProducto = ()=>{
-  
-  borrarProductoAPI(_id).then((respuesta)=>{
-    // TAREA: agregar la ventana de sweetaler para preguntar si queremos borrar el producto, solo en el caso de la respuesta afirmativa realizar el sieguiente codigo:
+    // busco el token de localstorage y lo envio
+    const token = JSON.parse(localStorage.getItem('tokenCafeBenito')).token|| null
+  borrarProductoAPI(_id,token).then((respuesta)=>{
     
+    // TAREA: agregar la ventana de sweetaler para preguntar si queremos borrar el producto, solo en el caso de la respuesta afirmativa realizar el sieguiente codigo:
     if(respuesta.status === 200){
       // se pudo borrar el producto
       Swal.fire("Producto eliminado","El producto fue eliminado exitosamente","success");

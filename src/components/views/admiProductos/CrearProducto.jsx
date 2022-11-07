@@ -11,8 +11,10 @@ const CrearProducto = () => {
 
   const onSubmit = (datos) =>{
     console.log(datos)
+    // busco el token de localstorage y lo envio
+    const token = JSON.parse(localStorage.getItem('tokenCafeBenito')).token|| null
     //enviar la peticion a la API
-    crearProductoAPI(datos).then((respuesta)=>{
+    crearProductoAPI(datos,token).then((respuesta)=>{
       console.log(respuesta)
       if(respuesta.status === 201){
         //si la respuesta es correcta indicarle al usuario

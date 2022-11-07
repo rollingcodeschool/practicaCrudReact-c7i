@@ -20,16 +20,16 @@ const Registro = ({setUsuarioLogueado}) => {
         if (respuesta.status === 201) {
 
           Swal.fire(
-            `Te registraste correctamente, ${datos.nombre}`,
-            "Inicia sesion con tu nueva cuenta.",
+            `Se registrasto correctamente, ${datos.nombre}`,
+            "Inicia sesion con la nueva cuenta.",
             "success"
           );
-          //guardar la sesion del usuario en localstorage
-            localStorage.setItem('tokenCafeBenito', JSON.stringify(datos));
-            //actualizar el state usuarioLogueado
-            setUsuarioLogueado(datos)
-            // redireccionamos
-            navigate("/administrar");
+          // //guardar la sesion del usuario en localstorage
+          //   localStorage.setItem('tokenCafeBenito', JSON.stringify(datos));
+          //   //actualizar el state usuarioLogueado
+          //   setUsuarioLogueado(datos)
+          //   // redireccionamos
+          //   navigate("/administrar");
         } else {
           Swal.fire(
             `Hubo un error inesperado`,
